@@ -6,3 +6,5 @@
 
 By accessing and utilizing the provided code, you acknowledge that you do so at your own risk.
 </b>
+
+to access the website enter this link <link>http://BulletCrystal.github.io/fbclone</link>
